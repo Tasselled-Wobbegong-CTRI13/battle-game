@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-const userRouter = require('./routes/user');
+const userRouter = require('./routes/users');
 
 const PORT = 3000;
 
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../dist/assets')));
 
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html'));
