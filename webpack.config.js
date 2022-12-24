@@ -21,7 +21,7 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
         proxy: {
-            '/db': 'http://localhost:3000'
+            '/users': 'http://localhost:3000'
         }
     },
     module: {
