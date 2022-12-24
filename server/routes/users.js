@@ -1,5 +1,4 @@
 const express = require('express');
-const { UNSAFE_NavigationContext } = require('react-router-dom');
 const userController = require('../controllers/userController');
 
 const router = express.Router();
