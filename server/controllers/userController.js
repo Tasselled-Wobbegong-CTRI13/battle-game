@@ -9,7 +9,6 @@ const userController = {};
 userController.createUser = (req, res, next) => {
   // consider using mongo-sanitize from npm
   const submission = req.body;
-  console.log(submission);
   for (const key in submission) {
     // TODO: function to generate error messages
     if (typeof submission[key] !== 'string') return next({
@@ -18,6 +17,7 @@ userController.createUser = (req, res, next) => {
     });
   }
 
+  // should we consider a find before creating if bcrypt hashing is expensive?
   User.create(submission, (err, user) => {
     if (err) return next({
       log: `Error in userController.createUser: ${err}`, 
