@@ -23,7 +23,7 @@ userController.createUser = (req, res, next) => {
       log: `Error in userController.createUser: ${err}`, 
       message: {err: 'Error creating user. See server log'}
     });
-    res.locals.message = `Created user ${user.username}`;
+    res.locals.message = `Created user ${user.username}`; // consider removing message
     return next();
   })
 }

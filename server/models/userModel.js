@@ -2,7 +2,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const MONGO_URI = 'mongodb+srv://server:cjR9GjH725fkfc2L@battlegame.5l1fxgv.mongodb.net/?retryWrites=true&w=majority';
+// replace with credentials
+const MONGO_URI = 'mongodb+srv://<username>:<password>@battlegame.5l1fxgv.mongodb.net/?retryWrites=true&w=majority';
 
 const SALT_WORK_FACTOR = 15;
 
