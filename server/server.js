@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../dist/assets')));
 
-app.use('/users', userRouter);
+app.use('/api/users', userRouter);
 
 // manual redirection for React router
 app.get('/', (req, res) => {

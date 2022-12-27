@@ -2,9 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        bundle: path.resolve(__dirname, './client/index.js')
-    },
+    entry: './client/index.js',
+    // entry: {
+    //     bundle: path.resolve(__dirname, './client/index.js')
+    // },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name][contenthash].js',
@@ -21,7 +22,7 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
         proxy: {
-            '/': 'http://localhost:3000'
+            '/api': 'http://localhost:3000'
         }
     },
     module: {
