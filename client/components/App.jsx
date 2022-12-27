@@ -10,15 +10,16 @@ const App = () => {
   // const []
 
   return (
-    <>
+    <div>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         {/* <Route element={<RequireAuth />}> */}
         <Route path="/gameboard" element={<RequireAuth><GameBoard /></RequireAuth>} />
         {/* </Route> */}
+        <Route path="*" element={<LoginPage />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

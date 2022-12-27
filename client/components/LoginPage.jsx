@@ -10,7 +10,7 @@ const LoginPage = (props) => {
     async function login(username, password) {
         try {
         event.preventDefault();
-        fetch(`/users?username=${username}&password=${password}`, {
+        fetch(`/api/users?username=${username}&password=${password}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
         })

@@ -9,6 +9,7 @@ const RequireAuth = ( { children } ) => {
     return (
         auth.username ? children : <Navigate to='/' />
     )
+
 }
 
 export default RequireAuth;
