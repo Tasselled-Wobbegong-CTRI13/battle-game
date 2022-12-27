@@ -37,6 +37,8 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   width: 700px;
   height: 500px;
   padding: 40px;
+  background-color: lightgray;
+  opacity: 80%;
 }
 
 .inputClass {
@@ -53,10 +55,12 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   height: 40px;
   border-radius: 5px;
   margin-bottom: 8px;
+  background-color: $primary-color;
 }
 
 .signup-btn {
   width: 150px;
   height: 40px;
   border-radius: 5px;
+  background-color: $secondary-color;
 }
