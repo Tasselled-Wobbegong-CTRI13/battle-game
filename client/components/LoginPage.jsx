@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 const LoginPage = (props) => {
+
     const navigate = useNavigate();
 
     async function login(username, password) {
-        fetch('/users', {
+        event.preventDefault();
+        fetch(`/users?username=${username}&password=${password}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username: username, password: password, email: email})
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+          if (data.success) navigate('/gameboard');
+        })
         .catch(err => console.error(err));
     }
 
