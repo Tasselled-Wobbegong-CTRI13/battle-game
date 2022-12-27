@@ -1,8 +1,7 @@
 // import mongoose from "mongoose";
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-const SALT_WORK_FACTOR = 15;
+const SALT_WORK_FACTOR = 10;
 
 mongoose.connect(process.env.MONGO_URI, {
   // options for the connect method to parse the URI
