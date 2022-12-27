@@ -24,6 +24,7 @@ userController.createUser = (req, res, next) => {
       message: {err: 'Error creating user. See server log'}
     });
     res.locals.message = `Created user ${user.username}`; // consider removing message
+    console.log(res.locals.message);
     return next();
   })
 }
