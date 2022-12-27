@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import useAuth from './useAuth.jsx';
 
 const LoginPage = (props) => {
 
     const navigate = useNavigate();
+    const { setAuth } = useAuth();
 
     async function login(username, password) {
+        try {
         event.preventDefault();
         fetch(`/users?username=${username}&password=${password}`, {
             method: 'GET',
@@ -13,9 +16,15 @@ const LoginPage = (props) => {
         })
         .then(res => res.json())
         .then(data => {
-          if (data.success) navigate('/gameboard');
+          if (data.success) {
+            setAuth({username: data.username});
+            navigate('/gameboard');
+          }
         })
         .catch(err => console.error(err));
+      } catch(err){
+        console.error(err);
+      }
     }
 
     return (
