@@ -2,12 +2,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// replace with credentials
-const MONGO_URI = 'mongodb+srv://<username>:<password>@battlegame.5l1fxgv.mongodb.net/?retryWrites=true&w=majority';
-
 const SALT_WORK_FACTOR = 15;
 
-mongoose.connect(MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   // options for the connect method to parse the URI
   useNewUrlParser: true,
   useUnifiedTopology: true,
