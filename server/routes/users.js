@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.post('/', userController.createUser, (req, res) => res.status(201).json({success: true}));
 
-router.get('/', (req, res, next) => console.log(req.query))
+router.get('/', userController.verifyUser, (req, res) => res.status(200).json(res.locals.user));
 
 module.exports = router;
