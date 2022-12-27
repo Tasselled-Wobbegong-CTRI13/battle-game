@@ -16,11 +16,12 @@ app.use(express.static(path.resolve(__dirname, '../dist/assets')));
 
 app.use('/users', userRouter);
 
-app.get('/', (req, res) => {
+// manual redirection for React router
+app.get('/*', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html'));
 })
 
-app.use((req, res) => res.status(404).send('Error: Not Found'));
+// app.use((req, res) => res.status(404).send('Error: Not Found'));
 
 
 app.use((err, req, res, next) => {
