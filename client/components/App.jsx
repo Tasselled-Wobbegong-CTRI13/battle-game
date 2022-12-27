@@ -14,9 +14,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route element={<RequireAuth />}>
-        <Route path="/gameboard" element={<GameBoard />} />
-        </Route>
+        {/* <Route element={<RequireAuth />}> */}
+        <Route path="/gameboard" element={<RequireAuth><GameBoard /></RequireAuth>} />
+        {/* </Route> */}
       </Routes>
     </>
   );
