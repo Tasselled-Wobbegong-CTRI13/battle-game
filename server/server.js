@@ -17,7 +17,7 @@ app.use(express.static(path.resolve(__dirname, '../dist/assets')));
 app.use('/users', userRouter);
 
 // manual redirection for React router
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html'));
 })
 
