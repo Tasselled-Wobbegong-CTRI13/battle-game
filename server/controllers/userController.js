@@ -22,8 +22,8 @@ userController.verifyUser = (req, res, next) => {
     if (user === null) return next(errorMessage('verifyUser', 'user not found', 'Error verifying user. See server log'))
     bcrypt.compare(password, user.password, function (bcryptErr, matched) {
       if (bcryptErr) return next(errorMessage('verifyUser', bcryptErr, 'Error verifying user. See server log'));
-      if (!matched) next(errorMessage('verifyUser', 'invalid password', 'Error verifying user. See server log'));
-      res.locals.user = user.username;
+      if (!matched) return next(errorMessage('verifyUser', 'invalid password', 'Error verifying user. See server log'));
+      res.locals.user = {username: user.username, success: true};
       return next();
     })
   })
