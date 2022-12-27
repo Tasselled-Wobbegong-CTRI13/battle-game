@@ -3,7 +3,7 @@ import React from 'react';
 export default function SignUpPage() {
 
     async function signUp(username, password, email) {
-        await fetch('/users', {
+        await fetch('/api/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username: username, password: password, email: email})
