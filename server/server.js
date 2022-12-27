@@ -3,16 +3,16 @@ const express = require('express');
 
 const app = express();
 
-const dbRouter = require('./routes/db');
+const userRouter = require('./routes/users');
 
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, '../dist')));
+app.use(express.static(path.resolve(__dirname, '../dist/assets')));
 
-// app.use('/db', dbRouter);
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html'));
