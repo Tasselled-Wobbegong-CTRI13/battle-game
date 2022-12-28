@@ -1,7 +1,9 @@
-import player from "./player";
+import defaultPlayer from "./defaultPlayer";
+import defaultEnemy from "./defaultEnemy";
 
 const defaultGame = {
-  player
+  player: defaultPlayer,
+  enemy: defaultEnemy
 };
 
 export default defaultGame;

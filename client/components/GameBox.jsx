@@ -1,9 +1,16 @@
 import React, { useReducer } from 'react';
 import HealthBar from './HealthBar.jsx';
 import ActionsBox from './ActionsBox.jsx';
+import defaultGame from '../game-logic/defaultGame.js';
 
 const gameReducer = (state, action) => {
     switch (action.type) {
+        case 'PLAYER_ATTACK': {
+            const updateEnemy = {...state.enemy};
+            updateEnemy.currentHP -= action.payload;
+            const newState = {...state, enemy: updateEnemy};
+            return newState;
+        }
         default: return state
     }
 }
@@ -14,7 +21,7 @@ const gameReducer = (state, action) => {
 
 const GameBox = (props) => {
 
-    const [state, dispatch] = useReducer(gameReducer, {}); // empty initial obj will eventually be from auth context
+    const [state, dispatch] = useReducer(gameReducer, defaultGame); // empty initial obj will eventually be from auth context
 
     return (
         <div className='game-box'>
@@ -22,7 +29,7 @@ const GameBox = (props) => {
                 <div className='enemy-info'>
                     <div className='enemy-health'>
                         Enemy Health
-                        <HealthBar />
+                        <HealthBar currentHP={state.enemy.currentHP} maxHP={state.enemy.maxHP} />
                     </div>
                 </div>
                 <img src='https://helloartsy.com/wp-content/uploads/kids/halloween/easy_skeleton_drawing/easy-skeleton-drawing_step-6.jpg' className='enemy-image'/>
@@ -32,11 +39,11 @@ const GameBox = (props) => {
                 <div className='player-info'>
                     <div className='player-health'>
                         Player Health
-                        <HealthBar />
+                        <HealthBar currentHP={state.player.currentHP} maxHP={state.player.maxHP} />
                     </div>
                     <div className='player-actions'>
                         Player actions
-                        <ActionsBox />
+                        <ActionsBox dispatch={dispatch} />
                     </div>
                 </div>
             </div>
