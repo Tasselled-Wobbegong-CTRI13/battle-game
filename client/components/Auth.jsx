@@ -7,7 +7,8 @@ const RequireAuth = ( { children } ) => {
     const location = useLocation();
 
     return (
-        auth.username ? children : <Navigate to='/' />
+        // auth.username ? children : <Navigate to='/' />
+        children
     )
 
 }

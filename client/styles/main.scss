@@ -64,3 +64,25 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background-color: $secondary-color;
 }
+
+.headerBox {
+  display: grid;
+  width: 80%;
+  height: 15%;
+}
+
+.game-box {
+  width: 80%;
+}
+
+.enemy-image, .player-image {
+  height:300px;
+}
+
+.enemy-area, .player-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px;
+}

@@ -1,9 +1,12 @@
 import React from 'react'
+import HeaderBox from './HeaderBox.jsx'
+import GameBox from './GameBox.jsx'
 
 export default function GameBoard() {
     return (
         <div className="containerBox">
-            <h1>Welcome to the Game!</h1> 
+            <HeaderBox />
+            <GameBox />
         </div>
     )
 }
