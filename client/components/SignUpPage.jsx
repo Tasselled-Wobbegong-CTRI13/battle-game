@@ -1,13 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
+
+    const navigate = useNavigate();
 
     async function signUp(username, password, email) {
         await fetch('/api/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username: username, password: password, email: email})
+            body: JSON.stringify({username, password, email})
         })
+        navigate('/');
     }
 
     return (

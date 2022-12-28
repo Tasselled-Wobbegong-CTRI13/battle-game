@@ -23,7 +23,7 @@ userController.verifyUser = (req, res, next) => {
     bcrypt.compare(password, user.password, function (bcryptErr, matched) {
       if (bcryptErr) return next(errorMessage('verifyUser', bcryptErr, 'Error verifying user. See server log'));
       if (!matched) return next(errorMessage('verifyUser', 'invalid password', 'Error verifying user. See server log'));
-      res.locals.user = {username: user.username, success: true};
+      res.locals.user = { username: user.username, success: true };
       return next();
     })
   })
@@ -52,4 +52,14 @@ userController.createUser = (req, res, next) => {
   })
 }
 
+userController.deleteUser = (req, res, next) => {
+  /**
+   * LOGIC: a user should be deleted ONLY when they are logged in
+   * Flow from verifyUser
+   */
+  User.deleteOne({username: res.locals.user.username}, function (err) {
+    if (err) return next(errorMessage('deleteUser', err, 'Error deleting user. See server log'));
+    return next();
+  })
+}
 module.exports = userController;
