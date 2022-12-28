@@ -1,8 +1,7 @@
 import React from "react";
 
-const HealthBar = (props) => {
+const HealthBar = ({currentHP, maxHP}) => {
     // const { bgcolor, completed } = props;
-    const completed = 67;
 
     const containerStyles = {
         height: 20,
@@ -10,11 +9,15 @@ const HealthBar = (props) => {
         backgroundColor: 'gray',
         borderRadius: 50,
         margin: 5,
+        position: 'relative',
+        overflow: 'hidden'
     }
 
     const fillerStyles = {
         height: '100%',
-        width: `${completed}%`,
+        width: `${currentHP/maxHP*100}%`, 
+        transitionProperty: 'width',
+        transitionDuration: '1s',
         backgroundColor: 'red',
         borderRadius: 'inherit',
         textAlign: 'right'
@@ -23,13 +26,15 @@ const HealthBar = (props) => {
     const labelStyles = {
         padding: 5,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        position: 'absolute',
+        left: '40%'
     }
 
     return (
         <div style={containerStyles}>
             <div style={fillerStyles}>
-                <span>{`${completed}%`}</span>
+            <span style={labelStyles}>{`${currentHP}`}</span>
             </div>
         </div>
     )

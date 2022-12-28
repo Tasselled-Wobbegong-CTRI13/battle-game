@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-$primary-color: #b2d3a8;
-$secondary-color: #ECD3A8;
+$primary-color: #0D0D0D;
+$secondary-color: #FFD700;
 $tertiary-color: #ad5d4e;
-$primary-text-color: #210203;
+$primary-text-color: white;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 
 * {
@@ -20,6 +20,9 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-image: url('../assets/background2.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .title {
@@ -37,8 +40,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   width: 700px;
   height: 500px;
   padding: 40px;
-  background-color: lightgray;
-  opacity: 80%;
+  background-color:rgba(208, 208, 208, 0.8);
 }
 
 .inputClass {
@@ -48,6 +50,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   margin-top: 8px;
   margin-bottom: 30px;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .login-btn {
@@ -56,6 +59,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-bottom: 8px;
   background-color: $primary-color;
+  color: $primary-text-color
 }
 
 .signup-btn {
@@ -66,13 +70,44 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .headerBox {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   height: 15%;
+  background-color: rgba(208, 208, 208, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.gameTitle {
+  font-size: 70px;
+}
+
+.headerSub {
+  display: flex;
+  margin-top: 20px;
+}
+
+.header-btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  margin-right: 8px;
 }
 
 .game-box {
   width: 80%;
+  height: 80%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 35px;
 }
 
 .enemy-image, .player-image {
@@ -80,9 +115,64 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .enemy-area, .player-area {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 20px;
+  border: 2px solid red;
+}
+
+.enemy-area {
+  display: flex;
+  justify-content: end;
+  width: 95%;
+  height: 45%;
+}
+
+.player-area {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  width: 40%;
+  height: 90%;
+}
+
+.dialog-box {
+  width: 56%;
+  height: 90%;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  line-height: 1.5rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-screen {
+  display: flex;
+  height: 50%;
+  align-items: center;
+}
+
+.action-btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  margin-top: 5px;
+}
+
+.player-info {
+  margin-left: 15px;
+}
+
+.player-health {
+  margin-bottom: 20px;
+}
+.enemy-health {
+  margin-right: 15px;
 }
