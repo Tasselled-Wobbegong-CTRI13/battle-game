@@ -82,6 +82,10 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border: 2px solid black;
 }
 
+.gameTitle {
+  font-size: 70px;
+}
+
 .headerSub {
   display: flex;
   margin-top: 20px;
@@ -103,7 +107,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 8px;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 30px;
+  padding: 35px;
 }
 
 .enemy-image, .player-image {
@@ -111,7 +115,6 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .enemy-area, .player-area {
-  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -122,13 +125,36 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 .enemy-area {
   display: flex;
   justify-content: end;
-
+  width: 95%;
+  height: 45%;
 }
 
 .player-area {
   display: flex;
   justify-content: start;
   align-items: end;
+  width: 40%;
+  height: 90%;
+}
+
+.dialog-box {
+  width: 56%;
+  height: 90%;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  line-height: 1.5rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-screen {
+  display: flex;
+  height: 50%;
+  align-items: center;
 }
 
 .action-btn {

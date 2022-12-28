@@ -1,10 +1,10 @@
 const maxHP = 50;
-const abilities = ['ATK'];
+// const abilities = ['ATK'];
 
 const defaultPlayer = {
     currentHP: maxHP,
     maxHP,
-    abilities
+    // abilities
 };
 
 export default defaultPlayer;

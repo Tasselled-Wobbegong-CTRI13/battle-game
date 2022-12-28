@@ -1,10 +1,11 @@
 const maxHP = 30;
-const abilities = ['ATK'];
+// const abilities = ['ATK'];
 
 const defaultEnemy = {
+    type: 'Skeleton',
     currentHP: maxHP,
     maxHP,
-    abilities
+    // abilities
 };
 
 export default defaultEnemy;

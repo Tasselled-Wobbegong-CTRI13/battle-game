@@ -4,7 +4,9 @@ import defaultEnemy from "./defaultEnemy";
 const defaultGame = {
   player: defaultPlayer,
   enemy: defaultEnemy,
-  isPlayerTurn: true
+  messages: [`You've encountered a ${defaultEnemy.type}!!!`],
+  isPlayerTurn: true,
+  gameOver: false
 };
 
 export default defaultGame;
