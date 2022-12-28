@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-$primary-color: #b2d3a8;
-$secondary-color: #ECD3A8;
+$primary-color: #0D0D0D;
+$secondary-color: #FFD700;
 $tertiary-color: #ad5d4e;
-$primary-text-color: #210203;
+$primary-text-color: white;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 
 * {
@@ -20,6 +20,9 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-image: url('../assets/background2.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .title {
@@ -38,7 +41,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   height: 500px;
   padding: 40px;
   background-color: lightgray;
-  opacity: 80%;
+  opacity: 100%;
 }
 
 .inputClass {
@@ -56,6 +59,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-bottom: 8px;
   background-color: $primary-color;
+  color: $primary-text-color
 }
 
 .signup-btn {

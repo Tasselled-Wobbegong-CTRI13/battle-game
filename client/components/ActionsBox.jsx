@@ -3,7 +3,7 @@ import React from 'react';
 const ActionsBox = (props) => {
 
     const attack = () => {
-        props.dispatch({ type: 'ATTACK', payload: 10 })
+        props.dispatch({ type: 'PLAYER_ATTACK', payload: 10 })
     }
 
     return (
