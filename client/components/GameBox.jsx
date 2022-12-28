@@ -1,19 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import HealthBar from './HealthBar.jsx';
 import ActionsBox from './ActionsBox.jsx';
 import defaultGame from '../game-logic/defaultGame.js';
-
-const gameReducer = (state, action) => {
-    switch (action.type) {
-        case 'PLAYER_ATTACK': {
-            const updateEnemy = {...state.enemy};
-            updateEnemy.currentHP -= action.payload;
-            const newState = {...state, enemy: updateEnemy};
-            return newState;
-        }
-        default: return state
-    }
-}
+import gameReducer from '../game-logic/gameReducer.js';
 
 // const defaultState = {
     
@@ -22,6 +11,10 @@ const gameReducer = (state, action) => {
 const GameBox = (props) => {
 
     const [state, dispatch] = useReducer(gameReducer, defaultGame); // empty initial obj will eventually be from auth context
+
+    useEffect(() => {
+        if (!state.isPlayerTurn) setTimeout(dispatch, 1500, {type: 'ENEMY_ATTACK', payload: 5})
+    }, [state])
 
     return (
         <div className='game-box'>
@@ -43,7 +36,7 @@ const GameBox = (props) => {
                     </div>
                     <div className='player-actions'>
                         Player actions
-                        <ActionsBox dispatch={dispatch} />
+                        <ActionsBox dispatch={dispatch} isPlayerTurn={state.isPlayerTurn} />
                     </div>
                 </div>
             </div>

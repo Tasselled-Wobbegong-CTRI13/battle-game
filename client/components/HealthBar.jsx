@@ -9,12 +9,15 @@ const HealthBar = ({currentHP, maxHP}) => {
         backgroundColor: 'gray',
         borderRadius: 50,
         margin: 5,
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden'
     }
 
     const fillerStyles = {
         height: '100%',
-        width: `${currentHP/maxHP*100}%`,
+        width: `${currentHP/maxHP*100}%`, 
+        transitionProperty: 'width',
+        transitionDuration: '1s',
         backgroundColor: 'red',
         borderRadius: 'inherit',
         textAlign: 'right'
