@@ -55,6 +55,7 @@ userController.createUser = (req, res, next) => {
 userController.deleteUser = (req, res, next) => {
   /**
    * LOGIC: a user should be deleted ONLY when they are logged in
+   * Flow from verifyUser
    */
   User.deleteOne({username: res.locals.user.username}, function (err) {
     if (err) return next(errorMessage('deleteUser', err, 'Error deleting user. See server log'));
