@@ -23,7 +23,7 @@ export default function SignUpPage() {
                 <label htmlFor='spassword'>Password</label>
                 <input className="inputClass" id="spassword" type="password" required></input>
                 <label htmlFor='semail'>Email</label>
-                <input className="inputClass" id="semail" type="text" required></input>
+                <input className="inputClass" id="semail" type="email" required></input>
                 <button className="signup-btn" onClick={() => signUp(document.querySelector('#susername').value, document.querySelector('#spassword').value, document.querySelector('#semail').value)}>Sign Up!</button>
             </div>
         </div>
