@@ -1,9 +1,10 @@
 import React from 'react';
+import * as abilities from '../game-logic/abilities.js';
 
 const ActionsBox = (props) => {
 
     const attack = () => {
-        props.dispatch({ type: 'PLAYER_ATTACK', payload: 10 });
+        props.dispatch({ type: 'PLAYER_ATTACK', payload: abilities.attack });
     }
 
     return (

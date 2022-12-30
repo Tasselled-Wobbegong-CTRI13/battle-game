@@ -1,11 +1,15 @@
+
+
 const gameReducer = (state, action) => {
     const newState = {messages: [...state.messages], gameOver: state.gameOver};
     switch (action.type) {
         case 'PLAYER_ATTACK': {
             newState.enemy = {...state.enemy};
+            newState.player = {...state.player};
             newState.messages.push(`You attack the ${newState.enemy.type}`);
-            newState.enemy.currentHP -= action.payload;
-            newState.messages.push(`The skeleton loses ${action.payload} hit points!`);
+            // newState.enemy.currentHP -= action.payload;
+            const result = action.payload(newState.player, newState.enemy);
+            newState.messages.push(`The skeleton loses ${result} hit points!`);
             break;
         }
         case 'ENEMY_ATTACK': {
