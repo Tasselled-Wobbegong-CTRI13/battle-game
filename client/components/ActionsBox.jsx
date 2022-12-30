@@ -13,7 +13,7 @@ const ActionsBox = (props) => {
             <button 
             className="action-btn" 
             onClick={attack}
-            disabled={!props.isPlayerTurn}>
+            disabled={!props.state.isPlayerTurn}>
                 Attack
             </button>
             <button className="action-btn">Abilities</button>
