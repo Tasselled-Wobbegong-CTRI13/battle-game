@@ -30,7 +30,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   font-size: 100px;
 }
 
-.login-form {
+.login-form, .delete-user-form  {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,20 +106,33 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border: 2px solid black;
   border-radius: 10px;
   margin-top: 8px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   padding: 35px;
 }
 
-.enemy-image, .player-image {
-  height:300px;
+.player-image {
+  height:600px;
 }
 
-.enemy-area, .player-area {
+.enemy-image {
+  height: 500px;
+}
+
+.enemy-area {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: end;
   margin: 20px;
-  border: 2px solid red;
+  //border: 2px solid red;
+}
+
+.player-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  margin: 20px;
 }
 
 .enemy-area {
@@ -168,6 +181,8 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 
 .player-info {
   margin-left: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .player-health {
@@ -175,4 +190,23 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 .enemy-health {
   margin-right: 15px;
+}
+
+.delete-user-form {
+  height: fit-content;
+  position: fixed;
+  margin-top: 3em;
+}
+
+.delete-user-form h4 {
+  margin-bottom: 20px;
+  line-height: 1.5rem;
+}
+
+.delete-btn {
+  width: 230px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $primary-text-color;
 }

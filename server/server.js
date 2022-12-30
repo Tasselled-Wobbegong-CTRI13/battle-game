@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, '../dist/assets')));
+app.use(express.static(path.resolve(__dirname, '../client/assets')));
 
 app.use('/api/users', userRouter);
 
