@@ -15,6 +15,9 @@ const ActionsBox = (props) => {
             disabled={!props.isPlayerTurn}>
                 Attack
             </button>
+            <button className="action-btn">Abilities</button>
+            <button className="action-btn">Items</button>
+            <button className="action-btn">Run</button>
         </div>
     )
 }

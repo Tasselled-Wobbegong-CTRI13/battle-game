@@ -9,6 +9,6 @@ router.post('/', userController.createUser, (req, res) => res.status(201).json({
 
 router.get('/', userController.verifyUser, (req, res) => res.status(200).json(res.locals.user));
 
-router.delete('/', userController.verifyUser, userController.deleteUser, (req, res) => res.sendStatus(204));
+router.delete('/', userController.verifyUser, userController.deleteUser, (req, res) => res.status(200).json({success: true}));
 
 module.exports = router;
