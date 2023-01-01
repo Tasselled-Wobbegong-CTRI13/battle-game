@@ -6,17 +6,19 @@ const gameReducer = (state, action) => {
         case 'PLAYER_ATTACK': {
             newState.enemy = {...state.enemy};
             newState.player = {...state.player};
-            newState.messages.push(`You attack the ${newState.enemy.type}`);
+            newState.messages.push(`You attack ${newState.enemy.type}`);
             const result = action.payload(newState.player, newState.enemy);
-            newState.messages.push(`The skeleton loses ${result} hit points!`);
+            if (typeof result === 'number') newState.messages.push(`The ${newState.enemy.type} loses ${result} hit points!`);
+            else newState.messages.push(result)
             break;
         }
         case 'ENEMY_ATTACK': {
             newState.enemy = {...state.enemy};
             newState.player = {...state.player};
-            newState.messages.push(`You attack the ${newState.enemy.type}`);
+            newState.messages.push(`${newState.enemy.type} attacks you`);
             const result = action.payload(newState.enemy, newState.player);
-            newState.messages.push(`The skeleton loses ${result} hit points!`);
+            if (typeof result === 'number') newState.messages.push(`The ${newState.enemy.type} loses ${result} hit points!`);
+            else newState.messages.push(result)
             break;
         }
         case 'PLAYER_WINS': {
