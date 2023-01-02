@@ -8,7 +8,7 @@ const defaultGame = {
   messages: [],
   isPlayerTurn: true,
   gameOver: false,
-  enemyList: [skeleton, bossEnemy],
+  enemyList: [bossEnemy],
 };
 
 defaultGame.messages.push(`You've encountered a ${defaultGame.enemy.type}`);

@@ -12,6 +12,7 @@ const gameReducer = (state, action) => {
           `The ${newState.enemy.type} loses ${result} hit points!`
         );
       else newState.messages.push(result);
+      // newState.isPlayerTurn = !state.isPlayerTurn;
       break;
     }
     case 'ENEMY_ATTACK': {
@@ -22,6 +23,7 @@ const gameReducer = (state, action) => {
       if (typeof result === 'number')
         newState.messages.push(`You lose ${result} hit points!`);
       else newState.messages.push(result);
+      // newState.isPlayerTurn = !state.isPlayerTurn;
       break;
     }
     case 'PLAYER_WINS': {
@@ -40,8 +42,9 @@ const gameReducer = (state, action) => {
       newState.enemyList = [...state.enemyList];
       newState.enemy = newState.enemyList.shift();
       newState.messages.push(`A ${newState.enemy.type} appeared!`);
-      console.log('state.enemy ', state.enemy);
-      console.log('newState.enemy ', newState.enemy);
+      const roar = new Audio(newState.enemy.sound);
+      roar.volume = 0.1;
+      roar.play();
       break;
     }
     default:

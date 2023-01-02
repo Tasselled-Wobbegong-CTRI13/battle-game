@@ -5,7 +5,7 @@ const hitCheck = () => {
 };
 
 export const attack = (actor, target) => {
-  if (!hitCheck()) return 'Miss!';
+  if (false) return 'Miss!';
   const hitAmount =
     Math.floor(actor.strength / 2) +
     Math.round((actor.strength / 2) * Math.random());

@@ -5,10 +5,13 @@ import defaultGame from '../game-logic/defaultGame.js';
 import gameReducer from '../game-logic/gameReducer.js';
 import AlwaysScrollToBottom from './AlwaysScrollToBottom.jsx';
 import * as abilities from '../game-logic/abilities.js';
+import audio from '../assets/wobbegong-roar.wav';
 
 // const defaultState = {
 
 // };
+const roar = new Audio(audio);
+roar.volume = 0.3;
 
 const GameBox = (props) => {
   const [state, dispatch] = useReducer(gameReducer, defaultGame); // empty initial obj will eventually be from auth context
@@ -16,6 +19,7 @@ const GameBox = (props) => {
   useEffect(() => {
     // if player hp || enemy hp = 0, lose/win condition
     if (!state.gameOver && state.enemy.currentHP <= 0) {
+      // roar.play();
       dispatch({ type: 'CHANGE_ENEMY' });
     } else if (!state.gameOver && state.player.currentHP <= 0)
       dispatch({ type: 'PLAYER_LOSES' });
