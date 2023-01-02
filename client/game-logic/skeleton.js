@@ -5,7 +5,8 @@ const skeleton = {
   type: 'Skeleton',
   currentHP: maxHP,
   maxHP,
-  strength: 5,
+  ATK: 5,
+  DEF: 5,
   img: `Skeleton.png`,
   // abilities
 };
