@@ -1,9 +1,10 @@
 import React from 'react';
+import * as abilities from '../game-logic/abilities.js';
 
 const ActionsBox = (props) => {
 
     const attack = () => {
-        props.dispatch({ type: 'PLAYER_ATTACK', payload: 10 });
+        props.dispatch({ type: 'PLAYER_ATTACK', payload: abilities.attack });
     }
 
     return (
@@ -12,7 +13,7 @@ const ActionsBox = (props) => {
             <button 
             className="action-btn" 
             onClick={attack}
-            disabled={!props.isPlayerTurn}>
+            disabled={!props.state.isPlayerTurn}>
                 Attack
             </button>
             <button className="action-btn">Abilities</button>

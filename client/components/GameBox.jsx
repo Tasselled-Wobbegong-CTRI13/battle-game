@@ -4,6 +4,7 @@ import ActionsBox from './ActionsBox.jsx';
 import defaultGame from '../game-logic/defaultGame.js';
 import gameReducer from '../game-logic/gameReducer.js';
 import AlwaysScrollToBottom from './AlwaysScrollToBottom.jsx';
+import * as abilities from '../game-logic/abilities.js';
 
 // const defaultState = {
     
@@ -16,7 +17,7 @@ const GameBox = (props) => {
     useEffect(() => {
         // if player hp || enemy hp = 0, lose/win condition 
         if (!state.gameOver && state.enemy.currentHP <= 0) dispatch({type: 'PLAYER_WINS'});
-        else if (!state.isPlayerTurn && !state.gameOver) setTimeout(dispatch, 1500, {type: 'ENEMY_ATTACK', payload: 5})
+        else if (!state.isPlayerTurn && !state.gameOver) setTimeout(dispatch, 1500, {type: 'ENEMY_ATTACK', payload: abilities.attack})
     }, [state])
 
     return (
@@ -40,7 +41,7 @@ const GameBox = (props) => {
                         </div>
                         <div className='player-actions'>
                             Player actions
-                            <ActionsBox dispatch={dispatch} isPlayerTurn={state.isPlayerTurn} />
+                            <ActionsBox dispatch={dispatch} state={state} />
                         </div>
                     </div>
                 </div>

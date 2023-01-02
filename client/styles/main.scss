@@ -143,6 +143,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .player-area {
+  z-index: 1;
   display: flex;
   justify-content: start;
   align-items: end;
@@ -151,6 +152,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .dialog-box {
+  z-index: 0;
   width: 56%;
   height: 90%;
   border: 5px solid #ffffff;
