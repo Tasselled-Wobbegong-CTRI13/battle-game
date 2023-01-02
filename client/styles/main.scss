@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-$primary-color: #0D0D0D;
-$secondary-color: #FFD700;
+$primary-color: #0d0d0d;
+$secondary-color: #ffd700;
 $tertiary-color: #ad5d4e;
 $primary-text-color: white;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,8 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   font-size: 110px;
 }
 
-.login-form, .delete-user-form  {
+.login-form,
+.modal-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +41,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   width: 700px;
   height: 500px;
   padding: 40px;
-  background-color:rgba(208, 208, 208, 0.8);
+  background-color: rgba(208, 208, 208, 0.8);
 }
 
 .inputClass {
@@ -59,7 +60,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-bottom: 8px;
   background-color: $primary-color;
-  color: $primary-text-color
+  color: $primary-text-color;
 }
 
 .signup-btn {
@@ -111,7 +112,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .player-image {
-  height:600px;
+  height: 600px;
 }
 
 .anime {
@@ -247,18 +248,18 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   margin-right: 15px;
 }
 
-.delete-user-form {
+.modal-form {
   height: fit-content;
   position: fixed;
   margin-top: 3em;
 }
 
-.delete-user-form h4 {
+.modal-form h4 {
   margin-bottom: 20px;
   line-height: 1.5rem;
 }
 
-.delete-btn {
+.modal-btn {
   width: 230px;
   height: 40px;
   border-radius: 5px;
