@@ -27,7 +27,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 
 .title {
   margin-bottom: 200px;
-  font-size: 100px;
+  font-size: 110px;
 }
 
 .login-form,
@@ -115,8 +115,62 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   height: 600px;
 }
 
+.anime {
+  animation: attack 1.2s;
+}
+
+@keyframes attack {
+  0% {
+    transform: translateX(0%) scale(1.0);
+  }
+  50% {
+    transform: translateX(20%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1.0);
+  }
+}
+
 .enemy-image {
   height: 500px;
+}
+
+.enemy-anime {
+  animation: enemyAttack 1.2s;
+}
+
+@keyframes enemyAttack {
+  0% {
+    transform: translateX(0%) scale(1.0);
+  }
+  50% {
+    transform: translateX(-20%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1.0);
+  }
+}
+
+.hurt {
+  animation: getHit 1.5s;
+}
+
+@keyframes getHit {
+  0% {
+    background-color: none;
+  }
+  25% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    background-color: none;
+  }
+  75% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    background-color: none;
+  }
 }
 
 .enemy-area {
@@ -125,7 +179,6 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
   align-items: end;
   margin: 20px;
-  //border: 2px solid red;
 }
 
 .player-area {

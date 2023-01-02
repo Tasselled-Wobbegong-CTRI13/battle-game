@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import HealthBar from './HealthBar.jsx';
 import ActionsBox from './ActionsBox.jsx';
 import defaultGame from '../game-logic/defaultGame.js';
@@ -17,8 +17,19 @@ const GameBox = (props) => {
     useEffect(() => {
         // if player hp || enemy hp = 0, lose/win condition 
         if (!state.gameOver && state.enemy.currentHP <= 0) dispatch({type: 'PLAYER_WINS'});
-        else if (!state.isPlayerTurn && !state.gameOver) setTimeout(dispatch, 1500, {type: 'ENEMY_ATTACK', payload: abilities.attack})
+        else if (!state.isPlayerTurn && !state.gameOver) { 
+            setTimeout(dispatch, 1500, {type: 'ENEMY_ATTACK', payload: abilities.attack})
+            setTimeout(updateState, 1500);
+        }
     }, [state])
+
+    const [btnState, setBtnState] = useState(false);
+    let toggleClassCheck = btnState ? ' anime' : ' hurt';
+    let reverseClassCheck = btnState ? ' hurt' : ' enemy-anime';
+
+    function updateState() {
+        setBtnState(!btnState);
+    }
 
     return (
         <div className='game-box'>
@@ -29,11 +40,11 @@ const GameBox = (props) => {
                         <HealthBar currentHP={state.enemy.currentHP} maxHP={state.enemy.maxHP} />
                     </div>
                 </div>
-                <img src={require('../assets/enemy1.png')} className='enemy-image'/>
+                <img src={require('../assets/enemy1.png')} className={`enemy-image${reverseClassCheck}`}/>
             </div>
             <div className="bottom-screen">
                 <div className='player-area'>
-                    <img src={require('../assets/mainCharacter.png')} className='player-image'/>
+                    <img src={require('../assets/mainCharacter.png')} className={`player-image${toggleClassCheck}`}/>
                     <div className='player-info'>
                         <div className='player-health'>
                             Player Health
@@ -41,7 +52,7 @@ const GameBox = (props) => {
                         </div>
                         <div className='player-actions'>
                             Player actions
-                            <ActionsBox dispatch={dispatch} state={state} />
+                            <ActionsBox dispatch={dispatch} state={state} update={updateState}/>
                         </div>
                     </div>
                 </div>
