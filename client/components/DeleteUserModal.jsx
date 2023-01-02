@@ -43,7 +43,7 @@ const DeleteUserModal = ({ displayState }) => {
   return (
     <form
       style={{ display: displayState ? 'block' : 'none' }}
-      className="delete-user-form"
+      className="modal-form"
       onSubmit={(e) =>
         deleteUser(
           document.querySelector('#username').value,
@@ -66,7 +66,7 @@ const DeleteUserModal = ({ displayState }) => {
         name="password"
       />
       <p style={deleteErrorModalStyle}>Invalid username / password</p>
-      <button className="delete-btn" type="submit">
+      <button className="modal-btn" type="submit">
         Confirm Delete
       </button>
     </form>
