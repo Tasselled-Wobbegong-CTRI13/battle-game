@@ -152,24 +152,29 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hurt {
-  animation: getHit 1.5s;
+  animation: getHit 2 0.2s linear;
 }
 
 @keyframes getHit {
   0% {
     background-color: none;
+    transform: scale(1.0);
   }
   25% {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.6);
+    transform: scale(0.9);
   }
   50% {
     background-color: none;
+    transform: scale(1.0);
   }
   75% {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.6);
+    transform: scale(0.9);
   }
   100% {
     background-color: none;
+    transform: scale(1.0);
   }
 }
 
