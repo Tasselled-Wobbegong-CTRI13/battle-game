@@ -40,8 +40,19 @@ const GameBox = (props) => {
     setBtnState(!btnState);
   }
 
+  function resetGame() {
+    document.querySelector('.death-box').style.display = 'none';
+    dispatch({ type: 'RESET_GAME' });
+  }
+
   return (
     <div className="game-box">
+      <div className="death-box">
+        You Died
+        <button className="action-btn" onClick={resetGame}>
+          Play again
+        </button>
+      </div>
       <div className="enemy-area">
         <div className="enemy-info">
           <div className="enemy-health">

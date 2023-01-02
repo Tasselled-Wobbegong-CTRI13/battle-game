@@ -7,7 +7,8 @@ const bossEnemy = {
   type: 'Tasselled Wobbegong',
   currentHP: maxHP,
   maxHP,
-  strength: 999,
+  ATK: 999,
+  DEF: 10,
   img: 'wobbegong.jpeg',
   sound: roar,
   // abilities

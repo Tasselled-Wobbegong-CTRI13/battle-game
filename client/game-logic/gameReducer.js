@@ -1,3 +1,4 @@
+import defaultGame from './defaultGame';
 const gameReducer = (state, action) => {
   // TODO: consider update passing a deep copy to various functions
   const newState = { messages: [...state.messages], gameOver: state.gameOver };
@@ -12,7 +13,7 @@ const gameReducer = (state, action) => {
           `The ${newState.enemy.type} loses ${result} hit points!`
         );
       else newState.messages.push(result);
-      // newState.isPlayerTurn = !state.isPlayerTurn;
+      newState.isPlayerTurn = !state.isPlayerTurn;
       break;
     }
     case 'ENEMY_ATTACK': {
@@ -23,7 +24,7 @@ const gameReducer = (state, action) => {
       if (typeof result === 'number')
         newState.messages.push(`You lose ${result} hit points!`);
       else newState.messages.push(result);
-      // newState.isPlayerTurn = !state.isPlayerTurn;
+      newState.isPlayerTurn = !state.isPlayerTurn;
       break;
     }
     case 'PLAYER_WINS': {
@@ -34,6 +35,10 @@ const gameReducer = (state, action) => {
     case 'PLAYER_LOSES': {
       newState.messages.push('You died');
       newState.gameOver = true;
+      setTimeout(
+        () => (document.querySelector('.death-box').style.display = 'flex'),
+        1500
+      );
       break;
     }
     case 'CHANGE_ENEMY': {
@@ -47,11 +52,14 @@ const gameReducer = (state, action) => {
       roar.play();
       break;
     }
+    case 'RESET_GAME': {
+      return defaultGame;
+    }
     default:
       return state;
   }
-  if (!newState.gameOver && !newState.player.currentHP <= 0)
-    newState.isPlayerTurn = !state.isPlayerTurn;
+  // if (!newState.gameOver && !newState.player.currentHP <= 0)
+  //   newState.isPlayerTurn = !state.isPlayerTurn;
   // newState.isPlayerTurn = !state.isPlayerTurn;
   return { ...state, ...newState };
 };
