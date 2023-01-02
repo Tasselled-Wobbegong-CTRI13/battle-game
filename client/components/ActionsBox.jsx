@@ -4,6 +4,7 @@ import * as abilities from '../game-logic/abilities.js';
 const ActionsBox = (props) => {
 
     const attack = () => {
+        props.update();
         props.dispatch({ type: 'PLAYER_ATTACK', payload: abilities.attack });
     }
 
