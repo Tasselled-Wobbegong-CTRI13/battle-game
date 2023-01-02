@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-$primary-color: #0D0D0D;
-$secondary-color: #FFD700;
+$primary-color: #0d0d0d;
+$secondary-color: #ffd700;
 $tertiary-color: #ad5d4e;
 $primary-text-color: white;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
@@ -27,10 +27,11 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 
 .title {
   margin-bottom: 200px;
-  font-size: 100px;
+  font-size: 110px;
 }
 
-.login-form, .delete-user-form  {
+.login-form,
+.modal-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +41,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   width: 700px;
   height: 500px;
   padding: 40px;
-  background-color:rgba(208, 208, 208, 0.8);
+  background-color: rgba(208, 208, 208, 0.8);
 }
 
 .inputClass {
@@ -59,7 +60,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-bottom: 8px;
   background-color: $primary-color;
-  color: $primary-text-color
+  color: $primary-text-color;
 }
 
 .signup-btn {
@@ -111,11 +112,65 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .player-image {
-  height:600px;
+  height: 600px;
+}
+
+.anime {
+  animation: attack 1.2s;
+}
+
+@keyframes attack {
+  0% {
+    transform: translateX(0%) scale(1.0);
+  }
+  50% {
+    transform: translateX(20%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1.0);
+  }
 }
 
 .enemy-image {
   height: 500px;
+}
+
+.enemy-anime {
+  animation: enemyAttack 1.2s;
+}
+
+@keyframes enemyAttack {
+  0% {
+    transform: translateX(0%) scale(1.0);
+  }
+  50% {
+    transform: translateX(-20%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1.0);
+  }
+}
+
+.hurt {
+  animation: getHit 1.5s;
+}
+
+@keyframes getHit {
+  0% {
+    background-color: none;
+  }
+  25% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    background-color: none;
+  }
+  75% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    background-color: none;
+  }
 }
 
 .enemy-area {
@@ -124,7 +179,6 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
   align-items: end;
   margin: 20px;
-  //border: 2px solid red;
 }
 
 .player-area {
@@ -143,6 +197,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .player-area {
+  z-index: 1;
   display: flex;
   justify-content: start;
   align-items: end;
@@ -151,6 +206,7 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .dialog-box {
+  z-index: 0;
   width: 56%;
   height: 90%;
   border: 5px solid #ffffff;
@@ -192,18 +248,18 @@ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   margin-right: 15px;
 }
 
-.delete-user-form {
+.modal-form {
   height: fit-content;
   position: fixed;
   margin-top: 3em;
 }
 
-.delete-user-form h4 {
+.modal-form h4 {
   margin-bottom: 20px;
   line-height: 1.5rem;
 }
 
-.delete-btn {
+.modal-btn {
   width: 230px;
   height: 40px;
   border-radius: 5px;

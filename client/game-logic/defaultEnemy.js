@@ -5,6 +5,7 @@ const defaultEnemy = {
     type: 'Skeleton',
     currentHP: maxHP,
     maxHP,
+    strength: 5
     // abilities
 };
 
