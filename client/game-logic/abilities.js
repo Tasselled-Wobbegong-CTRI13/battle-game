@@ -1,5 +1,8 @@
 // TODO: come up with algorithm for determine success for hit (currently a coin toss)
-const hitCheck = () => Math.round(Math.random());
+const hitCheck = () => {
+  const roll = 1 + Math.floor(Math.random() * 100);
+  return roll > 20; // flat 20% chance to miss
+};
 
 export const attack = (actor, target) => {
   if (!hitCheck()) return 'Miss!';
