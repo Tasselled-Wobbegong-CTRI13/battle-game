@@ -1,18 +1,25 @@
+
+
 const gameReducer = (state, action) => {
+    // TODO: consider update passing a deep copy to various functions
     const newState = {messages: [...state.messages], gameOver: state.gameOver};
     switch (action.type) {
         case 'PLAYER_ATTACK': {
             newState.enemy = {...state.enemy};
-            newState.messages.push(`You attack the ${newState.enemy.type}`);
-            newState.enemy.currentHP -= action.payload;
-            newState.messages.push(`The skeleton loses ${action.payload} hit points!`);
+            newState.player = {...state.player};
+            newState.messages.push(`You attack ${newState.enemy.type}`);
+            const result = action.payload(newState.player, newState.enemy);
+            if (typeof result === 'number') newState.messages.push(`The ${newState.enemy.type} loses ${result} hit points!`);
+            else newState.messages.push(result)
             break;
         }
         case 'ENEMY_ATTACK': {
-            newState.messages.push('The skeleton attack you');
+            newState.enemy = {...state.enemy};
             newState.player = {...state.player};
-            newState.player.currentHP -= action.payload; 
-            newState.messages.push(`You lose ${action.payload} hit points!`);
+            newState.messages.push(`${newState.enemy.type} attacks you`);
+            const result = action.payload(newState.enemy, newState.player);
+            if (typeof result === 'number') newState.messages.push(`You lose ${result} hit points!`);
+            else newState.messages.push(result)
             break;
         }
         case 'PLAYER_WINS': {
