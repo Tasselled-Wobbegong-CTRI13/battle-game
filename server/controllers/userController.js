@@ -1,16 +1,8 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const errorMessage = require('./errorMessage');
 
 const userController = {};
-
-// userController.getUsers = (req, res, next) => {
-//     next();
-// }
-
-const errorMessage = (functionName, error, message) => ({
-  log: `Error in userController.${functionName}: ${error}`,
-  message: { err: message },
-});
 
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.query;
@@ -50,6 +42,7 @@ userController.verifyUser = (req, res, next) => {
           )
         );
       res.locals.user = { username: user.username, success: true };
+      res.locals.userId = user._id.toString();
       return next();
     });
   });
@@ -59,13 +52,11 @@ userController.createUser = (req, res, next) => {
   // consider using mongo-sanitize from npm
   const submission = req.body;
   for (const key in submission) {
-    // TODO: function to generate error messages
-    if (typeof submission[key] !== 'string')
-      return next({
-        log: `Error in userController.createUser: invalid input`,
-        message: { err: 'Error creating user. See server log' },
-      });
-  }
+    if (typeof submission[key] !== 'string') return next({
+      log: `Error in userController.createUser: invalid input`, 
+      message: {err: 'Error creating user. See server log'}
+    });
+}
 
   // should we consider a find before creating if bcrypt hashing is expensive?
   User.create(submission, (err, user) => {
@@ -75,6 +66,7 @@ userController.createUser = (req, res, next) => {
         message: { err: 'Error creating user. See server log' },
       });
     res.locals.message = `Created user ${user.username}`; // consider removing message
+    res.locals.userId = user._id.toString();
     console.log(res.locals.message);
     return next();
   });
